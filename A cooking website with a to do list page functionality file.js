@@ -1,7 +1,6 @@
 const body = $(`body`);
 $(`#recipeDisplay`).hide();
-const startButton = $(`#startPoint`);
-startButton.on(`click`, () => {
+$(`#startPoint`).on(`click`, () => {
   $(`#homePage`).hide();
   $(`#recipeDisplay`).show();
   $(`#breakfast`).hide();
@@ -10,9 +9,16 @@ startButton.on(`click`, () => {
   $(`#dinner`).hide();
 });
 
+$(`#returnButton`).on(`click`, () => {
+  $(`#recipeDisplay`).hide();
+  $(`#homePage`).show();
+});
+
 const entranceButtons = $(`.recipeEntrance`);
-entranceButtons.forEach(element => {
-    element.on(`click`, (event) => {
-        
-    })
+entranceButtons.forEach((element) => {
+  element.on(`click`, (event) => {
+    let tag = event.target.attr(`class`);
+    $(`${tag}`).show();
+    $(`.recipeEntrance`).hide();
+  });
 });

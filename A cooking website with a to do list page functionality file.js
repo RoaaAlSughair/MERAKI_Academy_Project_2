@@ -1,12 +1,13 @@
 const body = $(`body`);
 $(`#recipeDisplay`).hide();
+$(`#breakfast`).hide();
+$(`#lunch`).hide();
+$(`#desserts`).hide();
+$(`#dinner`).hide();
+
 $(`#startPoint`).on(`click`, () => {
   $(`#homePage`).hide();
   $(`#recipeDisplay`).show();
-  $(`#breakfast`).hide();
-  $(`#lunchMainDishes`).hide();
-  $(`#desserts`).hide();
-  $(`#dinner`).hide();
 });
 
 $(`#returnButton`).on(`click`, () => {
@@ -14,11 +15,43 @@ $(`#returnButton`).on(`click`, () => {
   $(`#homePage`).show();
 });
 
-const entranceButtons = $(`.recipeEntrance`);
-entranceButtons.forEach((element) => {
-  element.on(`click`, (event) => {
-    let tag = event.target.attr(`class`);
-    $(`${tag}`).show();
-    $(`.recipeEntrance`).hide();
-  });
-});
+$(`#breakfast-btn`).on(`click`, () => {
+    $(`#recipeDisplay`).hide();
+    $(`#breakfast`).show();
+})
+
+$(`#breakfast-esc`).on(`click`, () => {
+    $(`#breakfast`).hide();
+    $(`#recipeDisplay`).show();
+})
+
+$(`#lunch-btn`).on(`click`, () => {
+    $(`#recipeDisplay`).hide();
+    $(`#breakfast`).show();
+})
+
+$(`#lunch-esc`).on(`click`, () => {
+    $(`#lunch`).hide();
+    $(`#recipeDisplay`).show();
+})
+
+$(`#desserts-btn`).on(`click`, () => {
+    $(`#recipeDisplay`).hide();
+    $(`#breakfast`).show();
+})
+
+$(`#desserts-esc`).on(`click`, () => {
+    $(`#desserts`).hide();
+    $(`#recipeDisplay`).show();
+})
+
+$(`#dinner-btn`).on(`click`, () => {
+    $(`#recipeDisplay`).hide();
+    $(`#dinner`).show();
+})
+
+$(`#dinner-esc`).on(`click`, () => {
+    $(`#dinner`).hide();
+    $(`#recipeDisplay`).show();
+})
+

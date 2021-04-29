@@ -70,6 +70,11 @@ $(`#ingrds`).on(`click`, () => {
     $(`#recipeOne`).show();
 })
 
+$(`#recipeOne-esc`).on(`click`, () => {
+    $(`#recipeOne`).hide();
+    $(`#breakfast`).show();
+})
+
 $(`#breakfast-esc`).on(`click`, () => {
   $(`#breakfast`).hide();
   $(`#recipeDisplay`).show();

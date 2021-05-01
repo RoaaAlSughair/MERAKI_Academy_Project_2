@@ -85,9 +85,14 @@ const recipes = {
 
 $(document).ready(() => {
   $("#startPoint").click(() => {
+    $(`#homePage`).hide();
+    $("#main-categories").html("");
+    $(`#main-categories`).show();
+  
     $(`#main-categories`).append(
       `<button class="js-turnBack">Return To Home page</button>`
     );
+    addEventToReturnToHomePage("js-turnBack");
     for (const key in recipes) {
       $("#main-categories").append(
         `<button class='js-recipes' data-index-name='${key}'>${key}</button>`
@@ -96,6 +101,13 @@ $(document).ready(() => {
     }
   });
 });
+
+function addEventToReturnToHomePage(selector) {
+  $(`.${selector}`).click(function() {
+  $(`#main-categories`).hide();
+  $(`#homePage`).show();
+})
+}
 
 function addEventToButton(selector) {
   $(`.${selector}`).click(function () {
@@ -129,7 +141,11 @@ function addEventToReturnButton(selector) {
 
 function addEventToIngredient(selector, parentCategory) {
   $(`.${selector}`).click(function () {
+    $(`#category-meals`).hide();
+    $(`#meal-instructions`).show();
     $("#meal-instructions").html("");
+    $(`#meal-instructions`).append(`<button class="js-meal-instructions-esc">Back to recipes</button>`);
+    addEventToBackToRecipes("js-meal-instructions-esc");
 
     if (
       !$.isEmptyObject(recipes[parentCategory][$(this).attr("data-index-name")])
@@ -150,6 +166,13 @@ function addEventToIngredient(selector, parentCategory) {
     }
   });
 }
+
+function addEventToBackToRecipes (selector) {
+  $(`.${selector}`).click(function() {
+  $(`#meal-instructions`).hide();
+  $(`#category-meals`).show();
+})
+};
 
 function addEventToInstructions(selector, parentCategory, grandparentCategory) {
   if (
@@ -185,87 +208,87 @@ function addEventToInstructions(selector, parentCategory, grandparentCategory) {
 // recipeOne.append(ingredients);
 // recipeOne.append(procedure);
 
-uploadRecipeIngredients = (array) => {
-  array.forEach((element) => {
-    $("#ingredients").append('<input type="checkbox" name="checkThisItem" />');
-    const ingredient = $(`<li>${element}</li>`);
-    $(`#ingredients`).append(ingredient);
-  });
-};
+// uploadRecipeIngredients = (array) => {
+//   array.forEach((element) => {
+//     $("#ingredients").append('<input type="checkbox" name="checkThisItem" />');
+//     const ingredient = $(`<li>${element}</li>`);
+//     $(`#ingredients`).append(ingredient);
+//   });
+// };
 
-uploadRecipeProcedure = (array) => {
-  array.forEach((element) => {
-    $("#procedure").append('<input type="checkbox" name="checkThisItem" />');
-    const step = $(`<li>${element}</li>`);
-    $(`#procedure`).append(step);
-  });
-};
+// uploadRecipeProcedure = (array) => {
+//   array.forEach((element) => {
+//     $("#procedure").append('<input type="checkbox" name="checkThisItem" />');
+//     const step = $(`<li>${element}</li>`);
+//     $(`#procedure`).append(step);
+//   });
+// };
 
-uploadRecipeIngredients(recipes.breakfast.scrambledEggs.ingredients);
-uploadRecipeProcedure(recipes.breakfast.scrambledEggs.instructions);
+// uploadRecipeIngredients(recipes.breakfast.scrambledEggs.ingredients);
+// uploadRecipeProcedure(recipes.breakfast.scrambledEggs.instructions);
 
-$(`#startPoint`).on(`click`, () => {
-  $(`#homePage`).hide();
-  $(`#recipeDisplay`).show();
-});
+// $(`#startPoint`).on(`click`, () => {
+//   $(`#homePage`).hide();
+//   $(`#recipeDisplay`).show();
+// });
 
-$(`#returnButton`).on(`click`, () => {
-  $(`#recipeDisplay`).hide();
-  $(`#homePage`).show();
-});
+// $(`#returnButton`).on(`click`, () => {
+//   $(`#recipeDisplay`).hide();
+//   $(`#homePage`).show();
+// });
 
-$(`#breakfast-btn`).on(`click`, () => {
-  $(`#recipeDisplay`).hide();
-  $(`#breakfast`).show();
-});
+// $(`#breakfast-btn`).on(`click`, () => {
+//   $(`#recipeDisplay`).hide();
+//   $(`#breakfast`).show();
+// });
 
-$(`.recipeOne-esc`).on(`click`, () => {
-  $(`#recipeOneIngredients`).hide();
-  $(`#recipeOneInstructions`).hide();
-  $(`#breakfast`).show();
-});
+// $(`.recipeOne-esc`).on(`click`, () => {
+//   $(`#recipeOneIngredients`).hide();
+//   $(`#recipeOneInstructions`).hide();
+//   $(`#breakfast`).show();
+// });
 
-$(`#ingrds`).on(`click`, () => {
-  $(`#breakfast`).hide();
-  $(`#recipeOneIngredients`).show();
-});
+// $(`#ingrds`).on(`click`, () => {
+//   $(`#breakfast`).hide();
+//   $(`#recipeOneIngredients`).show();
+// });
 
-$(`#prodc`).on(`click`, () => {
-  $(`#breakfast`).hide();
-  $(`#recipeOneInstructions`).show();
-});
+// $(`#prodc`).on(`click`, () => {
+//   $(`#breakfast`).hide();
+//   $(`#recipeOneInstructions`).show();
+// });
 
-$(`#breakfast-esc`).on(`click`, () => {
-  $(`#breakfast`).hide();
-  $(`#recipeDisplay`).show();
-});
+// $(`#breakfast-esc`).on(`click`, () => {
+//   $(`#breakfast`).hide();
+//   $(`#recipeDisplay`).show();
+// });
 
-$(`#lunch-btn`).on(`click`, () => {
-  $(`#recipeDisplay`).hide();
-  $(`#breakfast`).show();
-});
+// $(`#lunch-btn`).on(`click`, () => {
+//   $(`#recipeDisplay`).hide();
+//   $(`#breakfast`).show();
+// });
 
-$(`#lunch-esc`).on(`click`, () => {
-  $(`#lunch`).hide();
-  $(`#recipeDisplay`).show();
-});
+// $(`#lunch-esc`).on(`click`, () => {
+//   $(`#lunch`).hide();
+//   $(`#recipeDisplay`).show();
+// });
 
-$(`#desserts-btn`).on(`click`, () => {
-  $(`#recipeDisplay`).hide();
-  $(`#breakfast`).show();
-});
+// $(`#desserts-btn`).on(`click`, () => {
+//   $(`#recipeDisplay`).hide();
+//   $(`#breakfast`).show();
+// });
 
-$(`#desserts-esc`).on(`click`, () => {
-  $(`#desserts`).hide();
-  $(`#recipeDisplay`).show();
-});
+// $(`#desserts-esc`).on(`click`, () => {
+//   $(`#desserts`).hide();
+//   $(`#recipeDisplay`).show();
+// });
 
-$(`#dinner-btn`).on(`click`, () => {
-  $(`#recipeDisplay`).hide();
-  $(`#dinner`).show();
-});
+// $(`#dinner-btn`).on(`click`, () => {
+//   $(`#recipeDisplay`).hide();
+//   $(`#dinner`).show();
+// });
 
-$(`#dinner-esc`).on(`click`, () => {
-  $(`#dinner`).hide();
-  $(`#recipeDisplay`).show();
-});
+// $(`#dinner-esc`).on(`click`, () => {
+//   $(`#dinner`).hide();
+//   $(`#recipeDisplay`).show();
+// });

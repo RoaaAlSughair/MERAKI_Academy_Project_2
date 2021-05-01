@@ -164,7 +164,7 @@ $(document).ready(() => {
     $(`#main-categories`).show();
 
     $(`#main-categories`).append(
-      `<button class="js-turnBack">Return To Home page</button>`
+      `<button class="js-turnBack btn">Return To Home page</button>`
     );
     addEventToReturnToHomePage("js-turnBack");
     for (const key in recipes) {
@@ -188,7 +188,7 @@ function addEventToButton(selector) {
     $(`#main-categories`).hide();
     $("#category-meals").html("");
     $("#category-meals").append(
-      `<button class="js-category-meals-esc">Back to main categories</button>`
+      `<button class="js-category-meals-esc btn">Back to main categories</button>`
     );
     addEventToReturnButton(`js-category-meals-esc`);
     if (!$.isEmptyObject(recipes[$(this).attr("data-index-name")])) {
@@ -219,7 +219,7 @@ function addEventToIngredient(selector, parentCategory) {
     $(`#meal-instructions`).show();
     $("#meal-instructions").html("");
     $(`#meal-instructions`).append(
-      `<button class="js-meal-instructions-esc">Back to recipes</button>`
+      `<button class="js-meal-instructions-esc btn">Back to recipes</button>`
     );
     addEventToBackToRecipes("js-meal-instructions-esc");
 

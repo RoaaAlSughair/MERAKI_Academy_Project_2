@@ -30,7 +30,7 @@ const recipes = {
       Instructions: [
         "In a pot add oats, milk and sugar and let settle on fire for five minutes",
         "Chop the fruits",
-        "Transfer the oat mix to a bowl then add fruits, honey and nuts and serve"
+        "Transfer the oat mix to a bowl then add fruits, honey and nuts and serve",
       ],
     },
   },
@@ -151,7 +151,7 @@ const recipes = {
       ],
       Instructions: [
         "Chop all the fruits into cubes and put them in a bowl",
-        "Add hazelnuts\cashew and honey and serve",
+        "Add hazelnutscashew and honey and serve",
       ],
     },
   },
@@ -250,29 +250,46 @@ function addEventToBackToRecipes(selector) {
 }
 
 function addEventToInstructions(selector, parentCategory, grandparentCategory) {
-  console.log(
-    recipes[grandparentCategory][parentCategory]
-  );
-  if (
-    !$.isEmptyObject(
+  $(`.${selector}`).click(function () {
+    $(`#meal-procedure`).html("");
+    $(`#meal-procedure`).show();
+    if (
+      !$.isEmptyObject(
+        recipes[grandparentCategory][parentCategory][
+          $(this).attr(`data-index-name`)
+        ]
+      )
+    ) {
+      $(`#meal-procedure`).append(
+        `<ul class="js-${$(this).attr(`data-index-name`)}">`
+      );
+
       recipes[grandparentCategory][parentCategory][
         $(this).attr(`data-index-name`)
-      ]
-    )
-  ) {
-    $(`.${selector}`).click(function () {});
-  }
+      ].forEach(function (element) {
+        $(`#meal-procedure`).append(
+          `<li><label ><input type= "checkbox" name="checkThisItem" data-value=${element}/>${element}</label></li>`
+        );
+      });
+      $(`#meal-procedure`).append(
+        `<button class="js-close-procedure">Done</button>`
+      );
+      $(`#meal-procedure`).append(`<button class="js-like">Add to liked recipes</button>`)
+      addEventToDone("js-close-procedure");
+      AddEventToLikedRecipes("js-like", parentCategory);
+      $(`#meal-procedure`).append(`</ul >`);
+    }
+  });
 }
 
-//   recipes[grandparentCategory][parentCategory][
-//     $(this).attr(`data-index-name`)
-//   ].forEach(element, function () {
-//     const instructionList = $(`#meal-procedure`).append(
-//       `<ul class="js-information"></ul>`
-//     );
-//     instructionList.append(
-//       `<li><input type="checkbox" name="checkThisItem" /></li>`
-//     );
-//     instructionList.append(`<li>${element}</li>`);
-//   });
-// });
+function addEventToDone(selector) {
+  $(`.${selector}`).click(function () {
+    $(`#meal-procedure`).hide();
+  });
+}
+
+function AddEventToLikedRecipes (selector,recipe) {
+  $(`.${selector}`).click(function () {
+    localStorage.setItem('liked', recipe);
+  })
+}

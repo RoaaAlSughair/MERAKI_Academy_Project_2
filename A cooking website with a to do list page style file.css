@@ -1,9 +1,27 @@
+* {
+  margin: auto;
+}
+
 body {
   background-color: #FFE2C9;
   color: #386873;
   font-size: larger;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+}
+
+#homePage {
+  /* border-bottom: 5px;
+  border-top: 5px;
+  border-left: 5px;
+  border-right: 5px;
+  border-color: #735A44;
+  border-style: solid; */
+  margin-top: 200px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }
 
 ul {

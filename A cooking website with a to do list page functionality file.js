@@ -2,7 +2,8 @@ const body = $(`body`);
 
 const recipes = {
   Breakfast: {
-    Scrambled_Eggs: {
+    Fried_Eggs: {
+      Image: "https://img-global.cpcdn.com/recipes/42de6d7f011a101f/1360x964cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D9%81%D8%B7%D9%88%D8%B1-%D8%B5%D8%AD%D9%8A-%D8%A8%D9%8A%D8%B6-%D9%85%D8%B9-%D8%AC%D8%A8%D9%86%D8%A9-%D8%B4%D9%8A%D8%AF%D8%B1.webp",
       Ingredients: [
         "Two eggs",
         "One spoon of olive oil",
@@ -19,6 +20,7 @@ const recipes = {
       ],
     },
     Oatmeal: {
+      Image: "https://img-global.cpcdn.com/recipes/b73556f1df628d60/1360x964cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D9%81%D8%B7%D9%88%D8%B1-%D8%A7%D9%84%D8%B4%D9%88%D9%81%D8%A7%D9%86-%D8%A7%D9%84%D8%B5%D8%AD%D9%8A.webp",
       Ingredients: [
         "2 big spoons of oats",
         "1 cup of liquid milk",
@@ -35,6 +37,7 @@ const recipes = {
     },
   },
   Lunch: {
+    Image: "https://img-global.cpcdn.com/recipes/32cd913bdbfa3e34/1360x964cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D8%B4%D9%8A%D8%B4-%D8%B7%D8%A7%D9%88%D9%88%D9%82-%D8%B5%D8%AD%D9%8A.webp",
     Sheesh_Tawooq: {
       Ingredients: [
         "1 spoon of diet yoghurt",
@@ -60,6 +63,7 @@ const recipes = {
       ],
     },
     Tuna_Salad: {
+      Image: "https://img-global.cpcdn.com/recipes/16aeb77ac117f55f/1360x964cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D8%B3%D9%84%D8%B7%D8%A9-%D8%AA%D9%88%D9%86%D8%A9-%D8%B5%D8%AD%D9%8A%D8%A9-%D9%88%D8%B3%D8%B1%D9%8A%D8%B9%D8%A9.webp",
       Ingredients: [
         "1 can of tuna",
         "1 cup of minced lettuce",
@@ -78,6 +82,7 @@ const recipes = {
     },
   },
   Dinner: {
+    Image: "https://gourmandelle.com/wp-content/uploads/2014/04/Spring-Watercress-Salad-Balsamic-Vinaigrette-Salata-de-untisor-.jpg",
     Watercress_Salad: {
       Ingredients: [
         "Cherry tomatoes",
@@ -95,6 +100,7 @@ const recipes = {
       ],
     },
     Lentil_Soup: {
+      Image: "https://modo3.com/thumbs/fit630x300/845/1445759395/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%B9%D9%85%D9%84_%D8%B4%D9%88%D8%B1%D8%A8%D8%A9_%D8%A7%D9%84%D8%B9%D8%AF%D8%B3.jpg",
       Ingredients: [
         "1 cup of yellow lentil",
         "1 medium-sized onion",
@@ -118,6 +124,7 @@ const recipes = {
   },
   Snacks: {
     Oat_Cookies: {
+      Image: "https://img-global.cpcdn.com/recipes/c3435e631b78225e/1360x964cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D9%83%D9%88%D9%83%D9%8A%D8%B2-%D8%A7%D9%84%D8%B4%D9%88%D9%81%D8%A7%D9%86.webp",
       Ingredients: [
         "1 cup of grinded oat",
         "1 cup of whole-wheat flour",
@@ -140,6 +147,7 @@ const recipes = {
       ],
     },
     Fruit_Salad: {
+      Image: "https://img-global.cpcdn.com/recipes/301b2b0e90f7afa5/1360x964cq70/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D9%84%D9%88%D8%B5%D9%81%D8%A9%D8%B3%D9%84%D8%B7%D9%87-%D9%81%D9%88%D8%A7%D9%83%D9%87-%D8%A8%D8%A7%D9%84%D8%B9%D8%B3%D9%84-%D9%88%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA.webp",
       Ingredients: [
         "1 big banana",
         "1 apple",

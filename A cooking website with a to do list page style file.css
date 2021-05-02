@@ -3,8 +3,14 @@
 }
 
 body {
-  background-color: #FFE2C9;
-  color: #386873;
+  min-width: 100%;
+  min-height: 100%;
+  background-position: center center;
+  background-attachment: fixed;
+  background-image: url("https://st2.depositphotos.com/3316741/11056/i/950/depositphotos_110566078-stock-photo-healthy-cooking-background-fresh-cooking.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #C2211F;
   font-size: larger;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -17,7 +23,7 @@ body {
   border-right: 5px;
   border-color: #735A44;
   border-style: solid; */
-  margin-top: 200px;
+  margin-top: 50vh;
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;

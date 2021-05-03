@@ -14,26 +14,27 @@ body {
   font-size: larger;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  backdrop-filter: blur(5px);
 }
 
-#homePage {
-  /* border-bottom: 5px;
-  border-top: 5px;
-  border-left: 5px;
-  border-right: 5px;
-  border-color: #735A44;
-  border-style: solid; */
-  background-color: #BFBFBF;
-  margin-top: 50vh;
+div {
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
+  /* background-color: #BFBFBF; */
+  border-bottom: 5px;
+  border-top: 5px;
+  border-left: 5px;
+  border-right: 5px;
+  border-color: #735A44;
+  border-style: solid;
 }
 
 input {
   height: 15px;
   width: 15px;
+  font-weight: bolder;
   border-color: #857E3C;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -41,10 +42,11 @@ input {
   margin-right: 10px;
   border-radius: 5px;
   padding: 2px, 2px, 2px, 2px;
+  cursor: pointer;
 }
 
-input:checked {
-  background-color: #D6963E;
+input:after {
+  background-color: #C8E050;
 }
 
 ul {
@@ -52,9 +54,10 @@ ul {
 }
 
 button {
-  background-color: #C6DDE2;
+  background-color: #D6963E;
   color: #33281E;
   border-radius: 5px;
+  height: 30px;
 }
 
 .btn {

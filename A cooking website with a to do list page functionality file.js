@@ -1,5 +1,10 @@
 const body = $(`body`);
 
+$(`#main-categories`).hide();
+$(`#category-meals`).hide();
+$(`#meal-instructions`).hide();
+$(`#meal-procedure`).hide();
+
 const recipes = {
   Breakfast: {
     Fried_Eggs: {

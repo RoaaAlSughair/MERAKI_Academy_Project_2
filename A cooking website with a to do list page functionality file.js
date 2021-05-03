@@ -159,7 +159,7 @@ const recipes = {
       ],
       Instructions: [
         "Chop all the fruits into cubes and put them in a bowl",
-        "Add hazelnutscashew and honey and serve",
+        "Add hazelnuts, cashew and honey and serve",
       ],
     },
   },
@@ -253,6 +253,7 @@ function addEventToIngredient(selector, parentCategory) {
 function addEventToBackToRecipes(selector) {
   $(`.${selector}`).click(function () {
     $(`#meal-instructions`).hide();
+    $(`#meal-procedure`).hide();
     $(`#category-meals`).show();
   });
 }

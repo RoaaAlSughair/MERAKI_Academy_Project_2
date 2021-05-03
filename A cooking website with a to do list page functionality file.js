@@ -280,14 +280,12 @@ function addEventToInstructions(selector, parentCategory, grandparentCategory) {
       $(`#meal-procedure`).append(
         `<ul class="js-${$(this).attr(`data-index-name`)}">`
       );
-
       recipes[grandparentCategory][parentCategory][
         $(this).attr(`data-index-name`)
       ].forEach(function (element) {
         $(`#meal-procedure`).append(
-          `<li><input type= "checkbox" class="js-check" name="checkThisItem" data-value=${element}/></li>`
+          `<li><label ><input type= "checkbox" name="checkThisItem" data-value=${element}/>${element}</label></li>`
         );
-        $(`#meal-procedure`).append(`<li>${element}</li>`);
       });
       $(`#meal-procedure`).append(
         `<button class="js-close-procedure">Done</button>`
@@ -296,19 +294,18 @@ function addEventToInstructions(selector, parentCategory, grandparentCategory) {
         `<button class="js-like">Add to liked recipes</button>`
       );
       addEventToDone("js-close-procedure");
-      addEventToCheckbox("js-check");
       AddEventToLikedRecipes("js-like", parentCategory);
       $(`#meal-procedure`).append(`</ul >`);
     }
   });
 }
 
-function addEventToCheckbox (selector) {
+function addEventToCheckbox(selector) {
   $(`.${selector}`).on(`change`, function () {
     $(`.${selector}`).css({
       "border-color": "white",
-    })
-  })
+    });
+  });
 }
 
 function addEventToDone(selector) {
@@ -323,12 +320,18 @@ function AddEventToLikedRecipes(selector, recipe) {
   });
 }
 
-function addEventToLikeList (selector) {
+function addEventToLikeList(selector) {
   let recipe = localStorage.getItem("liked");
-  $(`${selector}`).click(function () {
-    $(`#liked-recipes`).show();
-    $(`#liked-recipes`).html("");
-    $(`#liked-recipes`).append(`<ul class="js-favorite-recipes"></ul>`);
-    $(`.js-favorite-recipes`).append(`<li>${recipe}</li>`);
-  })
+  $(`${selector}`).click((turn = 0) => {
+    if (turn === 0) {
+      $(`#liked-recipes`).hide();
+      turn = 1;
+    } else if (turn === 1) {
+      $(`#liked-recipes`).show();
+      $(`#liked-recipes`).html("");
+      $(`#liked-recipes`).append(`<ul class="js-favorite-recipes"></ul>`);
+      $(`.js-favorite-recipes`).append(`<li>${recipe}</li>`);
+      turn = 0;
+    }
+  });
 }
